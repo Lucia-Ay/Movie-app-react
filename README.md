@@ -1,1 +1,1 @@
-# Movie-app-react
+# Built using React, Firebase, and Stripe
