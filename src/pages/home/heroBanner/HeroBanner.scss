@@ -1,0 +1,113 @@
+@import '../../../mixins.scss';
+
+.hero-banner {
+  margin: 0;
+  width: 100%;
+  height: 450px;
+  background-color: var(--black);
+  display: flex;
+  align-items: center;
+  position: relative;
+  @include md {
+    height: 700px;
+  }
+  .backdrop-img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+    overflow: hidden;
+    .lazy-load-image-background {
+      width: 100%;
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+  }
+  .opacity-layer {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(
+      180deg,
+      rgba(4, 21, 45, 0) 0%,
+      var(--black) 79.17%
+    );
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  .hero-banner__content {
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    color: white;
+    text-align: center;
+    position: relative;
+    max-width: 800px;
+    margin-inline: auto;
+    .title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      @include md {
+        margin-bottom: 1rem;
+        font-size: 5rem;
+      }
+    }
+    .subtitle {
+      font-size: 1rem;
+      font-weight: 400;
+      margin-bottom: 2.5rem;
+      @include md {
+        font-size: 1.3rem;
+      }
+    }
+    .search__input {
+      width: 100%;
+      input {
+        width: calc(100% - 60px);
+        height: 50px;
+        background: white;
+        color: var(--black2);
+        outline: 0;
+        border: 0;
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
+        padding-inline: 0.8rem;
+        font-size: 0.9rem;
+        font-family: inherit;
+        @include md {
+          height: 3.75rem;
+          width: calc(100% - 190px);;
+          font-size: 1.1rem;
+          margin-right: 1rem;
+          padding-inline: 2rem;
+        }
+      }
+      button {
+        padding: 1rem 2rem;
+        background: var(--red3);
+        color: white;
+        outline: 0;
+        border: 0;
+        border-radius: 0.5rem;
+        font-size: 16px;
+        cursor: pointer;
+        &:hover {
+          background: var(--gradient);
+        }
+        @include md {
+          width: 150px;
+          height: 60px;
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+}
