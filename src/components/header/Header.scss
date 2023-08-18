@@ -1,0 +1,162 @@
+@import '../../mixins.scss';
+
+.header {
+  position: fixed;
+  transform: translateY(0);
+  width: 100%;
+  height: 3.75rem;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  transition: all ease 0.5s;
+  z-index: 2;
+  &.top {
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(3.5px);
+    -webkit-backdrop-filter: blur(3.5px);
+  }
+  &.show {
+    background-color: var(--black);
+  }
+  &.hide {
+    transform: translateY(-60px);
+  }
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    cursor: pointer;
+    img {
+      height: 90px;
+      @include md {
+        height: 110px;
+      }
+    }
+  }
+  .menu__items {
+    list-style-type: none;
+    display: none;
+    align-items: center;
+    @include md {
+      display: flex;
+    }
+    .menu__item {
+      height: 60px;
+      display: flex;
+      align-items: center;
+      margin-inline: 1rem;
+      color: white;
+      font-weight: 500;
+      position: relative;
+      &.searchIcon {
+        margin-right: 0;
+      }
+      svg {
+        font-size: 18px;
+      }
+      cursor: pointer;
+      &:hover {
+        color: var(--red3);
+      }
+    }
+  }
+
+  .mobile-menu__items {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    @include md {
+      display: none;
+    }
+    svg {
+      font-size: 18px;
+      color: white;
+      &:hover {
+        color: var(--red3);
+      }
+    }
+  }
+
+  &.mobileView {
+    background: var(--black);
+    .menu__items {
+      display: flex;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      background: var(--black);
+      flex-direction: column;
+      width: 100%;
+      padding: 20px 0;
+      border-radius: 0 0 1rem 1rem;
+      animation: mobileMenu 0.4s ease-in forwards;
+      .menu__item {
+        font-size: 20px;
+        width: 100%;
+        height: auto;
+        padding: 15px 20px;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        &:last-child {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .search__bar {
+    width: 100%;
+    height: 60px;
+    background-color: var(--black);
+    position: absolute;
+    top: 60px;
+    border-radius: 0 0 1rem 1rem;
+    animation: mobileMenu 0.4s ease-in forwards;
+    .search__input {
+      display: flex;
+      align-items: center;
+      height: 40px;
+      margin-top: 10px;
+      width: 100%;
+      svg {
+        font-size: 20px;
+        flex-shrink: 0;
+        margin-left: 10px;
+        color: white;
+        cursor: pointer;
+        &:hover {
+          color: var(--red3);
+        }
+      }
+      input {
+        width: 100%;
+        height: 50px;
+        background: inherit;
+        color: white;
+        outline: 0;
+        border: none;
+        padding: 0 15px;
+        font-size: 14px;
+        @include md {
+          height: 60px;
+          font-size: 20px;
+          padding: 0 30px;
+        }
+      }
+    }
+  }
+}
+
+@keyframes mobileMenu {
+  0% {
+    transform: translateY(-130%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
