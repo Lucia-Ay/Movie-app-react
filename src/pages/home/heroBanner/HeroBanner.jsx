@@ -37,10 +37,6 @@ const HeroBanner = () => {
         <Wrapper>
           <div className="hero-banner__content">
             <span className="title">{movie?.title}</span>
-            <div className='banner__btns'>
-              <button className='banner__btn'>Play</button>
-              <button className='banner__btn'>My List</button>
-            </div>
             <span className="subtitle">{truncate(movie?.overview, 180)}</span>
           </div>
         </Wrapper>
